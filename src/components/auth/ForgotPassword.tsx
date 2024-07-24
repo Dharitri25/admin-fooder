@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Grid,
@@ -6,31 +7,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useState, ChangeEvent } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import {
-  Theme,
-  ThemeProvider,
-  useTheme,
-} from "@mui/material/styles";
+import { ThemeProvider, useTheme } from "@mui/material/styles";
 import { tokens } from "../../theme";
-
-const useStyles = makeStyles((theme: Theme) => ({
-  paper: {
-    marginTop: "128px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  form: {
-    width: "100%",
-    marginTop: "16px",
-  },
-  submit: {
-    margin: "48px 0px 32px",
-  },
-}));
 
 function validateEmail(email: string) {
   let hasError = true;
@@ -59,7 +39,6 @@ interface FormState {
 }
 
 export default function ForgotPassword() {
-  const classes = useStyles();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -96,11 +75,18 @@ export default function ForgotPassword() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <div className={classes.paper}>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Typography component="h1" variant="h5">
             Forget password
           </Typography>
-          <form className={classes.form} noValidate>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -129,8 +115,8 @@ export default function ForgotPassword() {
                 {"Back to Sign In"}
               </Link>
             </Grid>
-          </form>
-        </div>
+          </Box>
+        </Box>
       </Container>
     </ThemeProvider>
   );
