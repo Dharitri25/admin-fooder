@@ -1,0 +1,30 @@
+.smallModel {
+  .MuiDialog-paper {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .MuiDialogContent-root {
+    padding: 30px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .MuiDialogActions-root {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    /* box-shadow: inset 0px 1px 0px #f0f0f0; */
+  }
+}
